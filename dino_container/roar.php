@@ -4,12 +4,15 @@ namespace Dino\Play;
 
 use Monolog\Logger;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Monolog\Handler\StreamHandler;
 
 require __DIR__.'/../vendor/autoload.php';
 
 $container = new ContainerBuilder();
 
-$logger = new Logger('main');
+$streamHandler = new StreamHandler(__DIR__.'/dino.log');
+
+$logger = new Logger('main', array($streamHandler));
 $container->set('logger', $logger);
 
 runApp($container);

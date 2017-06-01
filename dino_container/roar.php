@@ -3,13 +3,18 @@
 namespace Dino\Play;
 
 use Monolog\Logger;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 require __DIR__.'/../vendor/autoload.php';
 
-$logger = new Logger('main');
-runApp($logger);
+$container = new ContainerBuilder();
 
-function runApp(Logger $logger){
-  $logger->info('ROOOOAR'); 
+$logger = new Logger('main');
+$container->set('logger', $logger);
+
+runApp($container);
+
+function runApp(ContainerBuilder $container){
+  $container->get('logger')->info('ROOOOAR'); 
 }
 

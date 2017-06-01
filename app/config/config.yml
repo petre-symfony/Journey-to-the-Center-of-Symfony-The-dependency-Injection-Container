@@ -2,6 +2,9 @@ imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
   - { resource: services.yml }
+  
+journey:
+  dino_count: 10
 
 framework:
   #esi:             ~

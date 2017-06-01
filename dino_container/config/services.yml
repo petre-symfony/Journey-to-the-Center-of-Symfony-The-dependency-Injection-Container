@@ -10,5 +10,4 @@ services:
       
   logger.std_out_logger:
     class: Monolog\Handler\StreamHandler
-    arguments:
-      - 'php://stdout'
+    arguments: ['php://stdout']

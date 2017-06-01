@@ -19,11 +19,6 @@ $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
 $handlerDefinition->setArguments(array(__DIR__.'/dino.log'));
 $container->setDefinition('logger.stream.handler', $handlerDefinition);
 
-$stdLoggerDefinition = new Definition('Monolog\Handler\StreamHandler');
-$stdLoggerDefinition->setArguments(array(
-  'php://stdout'
-));
-$container->setDefinition('logger.std_out_logger', $stdLoggerDefinition);
 
 runApp($container);
 

@@ -33,4 +33,11 @@ class AppKernel extends Kernel{
   public function registerContainerConfiguration(LoaderInterface $loader){
     $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
   }
+  
+  protected function buildContainer() {
+    $containerBuilder = parent::buildContainer();
+    $containerBuilder->addCompilerPass(new \AppBundle\DependencyInjection\Compiler\EarlyLoggingMessageClass());
+    
+    return $containerBuilder;
+  }
 }

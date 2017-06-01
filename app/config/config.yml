@@ -30,6 +30,8 @@ framework:
 twig:
   debug:            "%kernel.debug%"
   strict_variables: "%kernel.debug%"
+  globals:
+    twitter_username: petrero
 
 # Assetic Configuration
 assetic:

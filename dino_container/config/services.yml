@@ -7,7 +7,13 @@ services:
     calls:
       - [pushHandler, ['@logger.std_out_logger']]
       - [debug, ['The logger just got started']]
+  
+  logger.stream.handler:
+    class: Monolog\Handler\StreamHandler
+    arguments: [__DIR__.'/dino.log']
       
   logger.std_out_logger:
     class: Monolog\Handler\StreamHandler
     arguments: ['php://stdout']
+    
+  

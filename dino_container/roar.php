@@ -5,11 +5,17 @@ namespace Dino\Play;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
+use Symfony\Component\Config\FileLocator;
 
 require __DIR__.'/../vendor/autoload.php';
 
 $container = new ContainerBuilder();
 
+$loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/config'));
+$loader->load('services.yml');
+
+/*
 $loggerDefinition = new Definition('Monolog\Logger');
 $loggerDefinition->setArguments(array(
   'main',
@@ -25,6 +31,7 @@ $loggerDefinition->addMethodCall('debug', array(
 ));
 
 $container->setDefinition('logger', $loggerDefinition);
+*/
 
 $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
 $handlerDefinition->setArguments(array(__DIR__.'/dino.log'));

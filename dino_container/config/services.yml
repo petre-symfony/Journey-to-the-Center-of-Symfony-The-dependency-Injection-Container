@@ -7,3 +7,8 @@ services:
     calls:
       - [pushHandler, ['@logger.std_out_logger']]
       - [debug, ['The logger just got started']]
+      
+  logger.std_out_logger:
+    class: Monolog\Handler\StreamHandler
+    arguments:
+      - 'php://stdout'

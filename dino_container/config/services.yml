@@ -3,4 +3,4 @@ services:
     class: Monolog\Logger
     arguments: 
       - main
-      - '@logger.stream.handler'
+      - ['@logger.stream.handler']

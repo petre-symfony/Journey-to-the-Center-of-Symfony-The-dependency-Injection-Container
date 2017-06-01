@@ -1,3 +1,6 @@
+parameters:
+  logger_start_message: 'The logger just got started'
+  
 services:
   logger:
     class: Monolog\Logger
@@ -6,7 +9,7 @@ services:
       - ['@logger.stream.handler']
     calls:
       - [pushHandler, ['@logger.std_out_logger']]
-      - [debug, ['The logger just got started']]
+      - [debug, ['%logger_start_message%']]
   
   logger.stream.handler:
     class: Monolog\Handler\StreamHandler

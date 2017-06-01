@@ -10,7 +10,7 @@ services:
   
   logger.stream.handler:
     class: Monolog\Handler\StreamHandler
-    arguments: [__DIR__.'/dino.log']
+    arguments: ['%root_dir%/dino.log']
       
   logger.std_out_logger:
     class: Monolog\Handler\StreamHandler

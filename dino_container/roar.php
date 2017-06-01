@@ -11,8 +11,9 @@ require __DIR__.'/../vendor/autoload.php';
 $container = new ContainerBuilder();
 
 $streamHandler = new StreamHandler(__DIR__.'/dino.log');
+$container->set('logger.stream.handler', $streamHandler);
 
-$logger = new Logger('main', array($streamHandler));
+$logger = new Logger('main', array($container->get('logger.stream.handler')));
 $container->set('logger', $logger);
 
 runApp($container);

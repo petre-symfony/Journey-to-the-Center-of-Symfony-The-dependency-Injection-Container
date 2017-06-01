@@ -1,2 +1,5 @@
-## YAML Template.
----
+services:
+  logger:
+    class: Monolog\Logger
+    arguments: 
+      - main

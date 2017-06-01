@@ -2,6 +2,7 @@ imports:
   - { resource: parameters.yml }
   - { resource: security.yml }
   - { resource: services.yml }
+  
 
 framework:
   #esi:             ~
@@ -29,6 +30,8 @@ framework:
 twig:
   debug:            "%kernel.debug%"
   strict_variables: "%kernel.debug%"
+  globals:
+    twitter_username: petrero
 
 # Assetic Configuration
 assetic:

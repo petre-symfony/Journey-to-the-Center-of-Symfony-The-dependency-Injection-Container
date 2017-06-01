@@ -4,3 +4,5 @@ services:
     arguments: 
       - main
       - ['@logger.stream.handler']
+    calls:
+      - [debug, ['The logger just got started']]

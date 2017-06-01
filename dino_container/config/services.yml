@@ -5,4 +5,5 @@ services:
       - main
       - ['@logger.stream.handler']
     calls:
+      - [pushHandler, ['@logger.std_out_logger']]
       - [debug, ['The logger just got started']]

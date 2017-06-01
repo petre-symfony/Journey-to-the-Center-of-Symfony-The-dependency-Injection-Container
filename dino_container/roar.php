@@ -15,6 +15,9 @@ $loggerDefinition->setArguments(array(
   'main',
   array(new Reference('logger.stream.handler'))
 ));
+$loggerDefinition->addMethodCall('debug', array(
+  'The logger just got started'
+));
 $container->setDefinition('logger', $loggerDefinition);
 
 $handlerDefinition = new Definition('Monolog\Handler\StreamHandler');
